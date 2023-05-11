@@ -199,3 +199,42 @@ word_2.map! do |ch, i|
     end
 end
 p word_2        # => "DiJkStRa"
+p "-------------------------------------------------------------"
+
+#Recursion Problems
+
+def multiply(a,b)
+    return 0 if b== 0
+    if b< 0
+        return -a+ multiply(a,b+1)
+    else
+        return a+ multiply(a,b-1)
+    end
+
+end
+
+p multiply(3, 5)        # => 15
+p multiply(5, 3)        # => 15
+p multiply(2, 4)        # => 8
+p multiply(0, 10)       # => 0
+p multiply(-3, -6)      # => 18
+p multiply(3, -6)       # => -18
+p multiply(-3, 6)       # => -18
+
+p "-------------------------------------------------------------"
+
+def lucas_sequence(num)
+    return [] if num == 0
+    return [2] if num == 1
+    return [2, 1] if num == 2
+    l_seq = lucas_sequence(num-1)
+    l_seq << l_seq[-1]+l_seq[-2]
+    return l_seq
+end
+
+p lucas_sequence(0)   # => []
+p lucas_sequence(1)   # => [2]    
+p lucas_sequence(2)   # => [2, 1]
+p lucas_sequence(3)   # => [2, 1, 3]
+p lucas_sequence(6)   # => [2, 1, 3, 4, 7, 11]
+p lucas_sequence(8)   # => [2, 1, 3, 4, 7, 11, 18, 29]
